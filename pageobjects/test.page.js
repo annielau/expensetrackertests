@@ -5,11 +5,10 @@ var expensePage = Object.create(Page, {
 	
 	//menu links
 	addExpenseLink: {get: function(){return browser.element('a#go_add_expense')}},
+	listExpensesLink: {get: function(){return browser.element('a#go_list_expenses')}},
 	categoryLink: {get: function(){return browser.element('a#go_list_categories')}},
-	listExpensesLink: {get: function(){return browser.element('a#go_list_expense')}},
-	showStatisticsLink: {get: function(){return browser.element('a#go_show_statistics')}},
+	statisticsLink: {get: function(){return browser.element('a#go_show_statistics')}},
 	editAccountLink:  {get: function(){return browser.element('[href=editaccount]')}}, 
-	logOutButton: {get: function(){return browser.element('[href=logout]')}},
 	
 	//registration
 	registerLink: {get: function(){return browser.element('[href= "register.jsp"]')}},
@@ -20,13 +19,13 @@ var expensePage = Object.create(Page, {
 	loginButton: {get: function(){return browser.element('input[id=submit]')}},
 	listTitle: {get: function(){return browser.element('h1=List Expenses:')}},
 	registerButton: {get: function(){return browser.element('input[id=submit]')}},
-	wrongUserPassMessage: {get: function(){return browser.element('div.container > form > div:nth-child(3) > div')}}
+	wrongUserPassMessage: {get: function(){return browser.element('div.container > form > div:nth-child(3) > div')}},
 	
 	//category
 	addCategoryLink: {get: function(){return browser.element('a#go_add_category')}},
 	categoryField: {get: function(){return browser.element('input[id=name]')}},
 	createCategoryButton: {get: function(){return browser.element('input[id=submit]')}},
-	listCategories: {get: function(){return browser.element('h1=List Categories')}},
+	listCategoriesTitle: {get: function(){return browser.element('h1=List Categories')}},
 	deleteCategory: {get: function(){return browser.element('href=deletecategory?id=1010')}},
 	categoryRow: {get: function(){return browser.element('.table > tbody > tr:last-child > td:nth-child(1)')}},
 	
@@ -42,6 +41,11 @@ var expensePage = Object.create(Page, {
 	expenseCategoryRow: {get: function(){return browser.element('.table > tbody > tr:last-child > td:nth-child(2)')}},
 	expenseAmountRow: {get: function(){return browser.element('.table > tbody > tr:last-child > td:nth-child(3)')}},
 	expenseReasonRow: {get: function(){return browser.element('.table > tbody > tr:last-child > td:nth-child(4)')}},
+	addExpenseTitle: {get: function(){return browser.element('h1=Add Expense')}},
+	listExpensesTitle: {get: function(){return browser.element('h1=List Expenses:')}},
+
+	//Statitics page
+	statisticsTitle: {get: function(){return browser.element('h3=Test Statistics:')}},
 
 	verifyListExpensesText: {
 		value: function () {
@@ -67,6 +71,42 @@ var expensePage = Object.create(Page, {
 
 		},
 	},
+
+	// verifyCategoryIsDisplayed: {
+	// 	value: function(category) {
+	// 		expect (this.categoryTitle.getText()).to.equal(category);
+
+	// 	},
+	// },
+	
+	verifyAddExpenseTitleisDisplayed: {
+		value: function(title) {
+			expect (this.addExpenseTitle.getText()).to.equal('Add Expense');
+
+		},
+	},
+
+	verifyListExpensesTitleisDisplayed: {
+		value: function(title) {
+			expect (this.listExpensesTitle.getText()).to.equal('List Expenses:');
+
+		},
+	},
+
+	verifyCategoryTitleisDisplayed: {
+		value: function(title) {
+			expect (this.listCategoriesTitle.getText()).to.equal('List Categories');
+
+		},
+	},
+	
+	verifyStatisticsTitleisDisplayed: {
+		value: function(title) {
+			expect (this.statisticsTitle.getText()).to.equal('Test Statistics:');
+
+		},
+	},
+	
 
 	getUserName: {
 		value: function () {
