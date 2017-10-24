@@ -71,13 +71,6 @@ var expensePage = Object.create(Page, {
 
 		},
 	},
-
-	// verifyCategoryIsDisplayed: {
-	// 	value: function(category) {
-	// 		expect (this.categoryTitle.getText()).to.equal(category);
-
-	// 	},
-	// },
 	
 	verifyAddExpenseTitleisDisplayed: {
 		value: function(title) {
